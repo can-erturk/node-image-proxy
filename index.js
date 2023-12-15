@@ -18,12 +18,6 @@ app.get("/", async (req, res) => {
       .sendFile(path.join(dir, "views", "missing-q-parameter.html"));
   }
 
-  if (!q.includes("https://assets.coingecko.com/")) {
-    return res
-      .status(400)
-      .sendFile(path.join(dir, "views", "domain-error.html"));
-  }
-
   // Try to get image from url
   try {
     res.setHeader("Content-Type", "image/png");
